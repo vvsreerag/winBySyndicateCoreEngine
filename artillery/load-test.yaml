@@ -1,0 +1,62 @@
+config:
+  target: "http://localhost:2111" # Base URL of your API
+  phases:
+    - duration: 60 # Duration of the test in seconds (1 minute)
+      arrivalRate: 100 # Rate of arrival of virtual users per second (equivalent to 100 requests per minute)
+  defaults:
+    headers:
+      Content-Type: "application/json" # Adjust content type as needed
+scenarios:
+  - name: getAllThirtyTwentyNinePattern
+    flow:
+      - get:
+          url: "/api/v1/engine/getAllThirtyTwentyNinePattern"
+
+  - name: getOddEvenPattern
+    flow:
+      - get:
+          url: "/api/v1/engine/getOddEvenPattern"
+          params:
+            firstNumberType: "1"
+            countOfEvenNumber: "2"
+
+  - name: getFiveTensAndNinePattern
+    flow:
+      - get:
+          url: "/api/v1/engine/getFiveTensAndNinePattern"
+          params:
+            chosenThirtyTwentyNinePattern: "4"
+            countOfNumberInFirstColumn: "2"
+
+  - name: getMainGrid
+    flow:
+      - get:
+          url: "/api/v1/engine/getMainGrid"
+          params:
+            chosenFiveTensAndNineId: "181"
+            chosenOddEvenPatternId: "23"
+
+  - name: getPossibleMultiTypes
+    flow:
+      - get:
+          url: "/api/v1/engine/getPossibleMultiTypes"
+          params:
+            chosenFiveTensAndNineId: "242"
+            chosenOddEvenPatternId: "2"
+
+  - name: getMultiTypeGrid
+    flow:
+      - get:
+          url: "/api/v1/engine/getMultiTypeGrid"
+          params:
+            chosenFiveTensAndNineId: "242"
+            chosenOddEvenPatternId: "2"
+            n1: "4"
+            n2: "4"
+
+  - name: getDetailsOfLine
+    flow:
+      - get:
+          url: "/api/v1/engine/getDetailsOfLine"
+          params:
+            line: "1 11 21 31 41 51"

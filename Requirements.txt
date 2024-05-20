@@ -1,0 +1,6 @@
+npm install -g artillery
+npm install pm2 -g
+npm install
+npm run create
+npm run migrate
+npm run prod:start
