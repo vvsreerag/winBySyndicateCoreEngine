@@ -20,6 +20,21 @@ which will create database on mysql.
 
 `npm run migrate:reset`
 
+# Project Setup
+
+First of all, install all the node modules by below command:
+
+`npm install`
+
+and install artillery, it you are using load test
+
+`npm install -g artillery`
+
+and to deploy in producton install pm2
+
+`npm install pm2 -g`
+
+
 ## To Test
 
 `npm run test`
